@@ -1,7 +1,7 @@
-Bobelniceanu Darius-Andrei - 331CC
+
 ==================================
 
-Ce am folosit la rezolvarea temei: Linux, FLEX si C++
+Ce am folosit la rezolvarea proiectului: Linux, FLEX si C++
 
 Cea mai dificila parte mi s-a parut gestionarea corecta a stivei de stari cu functiile yy_push_state si yy_pop_state, cat si realizarea unor expresii regulate eficiente si compacte pentru a parsa automatele si gramaticile primite. Intr-un final am reusit sa fac o implementare modulara, astfel incat tranzitiile intre stari sunt usor de vizualizat, iar extragerea informatiilor dorite se face strict in FLEX, fara a folosit functii de string-uri din C++. De asemenea, si flow-ul programului este gestionat in mare parte de stiva de stari, folosind variabile si conditii doar acolo unde este strict necesar (de exemplu in cod, pentru a verifica daca o tranzitie lipseste dintr-un automat, a trebuit neaparat sa trec prin toate tranzitiile de ar trebui sa le aiba automatul pentru a le verifica existenta). O alta problema care mi s-a parut interesanta a fost detectarea corecta a comentariilor multi-line nested, deoarece un simplu regex nu detecteaza corect comentarii precum "/* /* */ */", oprindu-se la primul "*/". Am rezolvat asta cu o noua stare IN_COMMENT din care se iese abia cand numarul de comentarii deschise este egal cu numarul de comentarii inchise.
 
