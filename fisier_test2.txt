@@ -1,0 +1,34 @@
+variable alfabet ::= { a, b, c } ;
+
+gramatica_regulata ::= Grammar (
+	nonterminals :: { S, A, B } ;
+	alphabet :: { a, b } ;
+	start_symbol :: S ;
+
+	S -> a&a&A | b&B | e ;
+	A -> a&B | b&A ;
+	B -> b&S | a&B | e ;
+) ;;
+
+gramatica_dependenta ::= Grammar (
+	nonterminals :: { S, A, B } ;
+	alphabet :: { alfabet } ;
+	start_symbol :: S ;
+	variable y ::= { c, d } ;
+
+	S&A -> A&B | B&S ;
+	A&b -> b&A | A&b ;
+	B&a -> A&B&a | e ;
+) ;;
+
+gramatica_libera ::= Grammar (
+	nonterminals :: { S, A, B } ;
+	alphabet :: { a, b } ;
+	start_symbol :: S ;
+	variable z ::= { a } ;
+
+	S -> A&B | e ;
+	A&a -> B&A | a ;
+	B&b -> a&B | z&A ;
+	A -> b&S&a ;
+) ;;
